@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 1.配置开发环境 -->
+    <environments default="test">
+        <environment id="test">
+            <!-- 1.1配置事务管理方式 -->
+            <transactionManager type="JDBC"/>
+            <!-- 1.2配置数据源(连接数据库的基本信息)
+                    type="POOLED":表示使用连接池
+                    type="UNPOOLED":表示不使用连接池
+                    type="JNDI"
+            -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/yonghedb?characterEncoding=utf-8&amp;serverTimezone=GMT%2B8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="Syp950628"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 2.导入xxxMapper.xml文件 -->
+    <mappers>
+        <mapper resource="EmpMapper.xml"/>
+    </mappers>
+</configuration>
